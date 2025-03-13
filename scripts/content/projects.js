@@ -8,7 +8,7 @@ function projectsFunction() {
     // Array of lines as raw HTML strings
     let titles = [
         '<p><span> Lasha`s Inventory Management System</span> web application projects</p>',
-        '<p><span> Personalized</span> web site projects</p>'
+        '<p><span> Minor</span> projects</p>'
     ];
 
     // Function to create and append a topLine element
@@ -51,6 +51,13 @@ function projectsFunction() {
         description: 'Dimitri Meliqidze Photography personal website',
         used: 'HTML, CSS, JS, PHP',
         url: 'https://dimitri-meliqidze.my-style.in'
+        },
+        {
+        title: 'AI Tools Hub',
+        description: 'AI Tools Directory website',
+        used: 'HTML, CSS, JS, PHP',
+        url: 'https://ai-tools-hub.is-best.net/',
+        github: 'https://github.com/Lasha-Tvauri/ai-tools-hub'
         }
     ];
 
