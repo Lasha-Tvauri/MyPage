@@ -11,6 +11,11 @@
 </head>
 
 <body class="unselectable">
+  <button id="theme-toggle-btn" title="Toggle Theme">
+    <i class="fas fa-sun"></i>
+    <i class="fas fa-moon"></i>
+  </button>
+
   <div class="loader-container">
     <svg viewBox="0 0 100 100" class="progress-hex">
       <path class="progress-hex-path" fill="none" d="M 50 5 L 95 25 L 95 75 L 50 95 L 5 75 L 5 25 Z"/>
@@ -23,9 +28,9 @@
       <div id="menu-container">
         <div id="menu">
             <a id="title-L" href="https://github.com/Lasha-Tvauri" target="_blank">L</a>
-            <button class="menuButton" id="homeButton">Home</button>
+            <button class="menuButton" >Home</button>
             <button class="menuButton">About</button>
-            <button class="menuButton">Projects</button>
+            <button class="menuButton" id="homeButton">Projects</button>
             <button class="menuButton">Contact</button>
           </div>
         </div>
@@ -38,7 +43,6 @@
 
     <div id="symbols-container"></div>   
       
-<script src="scripts/bg/curved_lines.js"></script>
 <script src="scripts/bg/symbols.js"></script>
 <script src="scripts/content/loader.js"></script>
 <script src="scripts/content/home.js"></script>
@@ -46,6 +50,7 @@
 <script src="scripts/content/projects.js"></script>
 <script src="scripts/content/contact.js"></script>
 <script src="scripts/content/buttons.js"></script>
+<script src="scripts/content/theme-toggle.js"></script>
 </body>
 </html>
 

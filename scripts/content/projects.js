@@ -8,7 +8,8 @@ function projectsFunction() {
     // Array of lines as raw HTML strings
     let titles = [
         '<p><span> Lasha`s Inventory Management System</span> web application projects</p>',
-        '<p><span> Minor</span> projects</p>'
+        '<p><span> Minor</span> projects</p>',
+        '<p><span> Side</span> projects</p>'
     ];
 
     // Function to create and append a topLine element
@@ -58,9 +59,24 @@ function projectsFunction() {
         used: 'HTML, CSS, JS, PHP',
         url: 'https://ai-tools-hub.is-best.net/',
         github: 'https://github.com/Lasha-Tvauri/ai-tools-hub'
+        },
+        {
+        title: 'Scribely',
+        description: 'API Documentation Engine',
+        used: 'HTML, CSS, JS, PHP',
+        info: 'https://gum.new/gum/cmmth2pqc000004l26scucylh',
+        url: 'https://scribely.42web.io/'
         }
     ];
 
+    let projectContent3 = [
+        {
+        title: 'Aviation Dictionary',
+        description: 'Georgian English Aviation Dictionary',
+        used: 'HTML, Blade, Tailwind CSS, JS, MySQL, PHP, Laravel',
+        url: 'https://gauaviationdictionary.ge/'
+        }
+    ];
     
     function createPrDivs(projectContent){
     // Create projects div wrapper
@@ -74,25 +90,31 @@ function projectsFunction() {
         // Assign unique ID to each project div
         // projectDiv.id = `project-${i + 1}`; 
 
-        // Create anchor tag with href attribute set to the project URL
-        let anchorTag = document.createElement('a');
-        if(projectContent[i].url){
-            anchorTag.classList.add('project-title1');
-            anchorTag.href = projectContent[i].url;
-        }else{
-            anchorTag.classList.add('project-title2');
-        }
-        anchorTag.target = '_blank'; // Open link in new tab
-        anchorTag.textContent = projectContent[i].title;
-
-        // Append anchor tag to project div
-        projectDiv.appendChild(anchorTag);
+        // Create the Title (as a plain element, e.g., an <h3> or <span>)
+        let titleElement = document.createElement('h3'); 
+        titleElement.textContent = projectContent[i].title;
+        titleElement.classList.add('project-title-text'); // Suggested class for styling
+        projectDiv.appendChild(titleElement);
 
         // Add description to project div
         let descriptionParagraph = document.createElement('p');
         descriptionParagraph.textContent = projectContent[i].description;
         descriptionParagraph.classList.add('p_desc');
         projectDiv.appendChild(descriptionParagraph);
+
+        // Create the "Live" link 
+        if (projectContent[i].url) {
+            let liveLink = document.createElement('a');
+            liveLink.href = projectContent[i].url;
+            liveLink.textContent = 'Live';
+            liveLink.target = '_blank';
+            liveLink.classList.add('project-title1'); // Class for the "Live" link
+            
+            // Use a <div> or <br> to ensure it's on a new line
+            let linkWrapper = document.createElement('div');
+            linkWrapper.appendChild(liveLink);
+            projectDiv.appendChild(linkWrapper);
+        }        
 
         // Add technologies used to project div
         let usedTechnologiesParagraph = document.createElement('p');
@@ -113,6 +135,14 @@ function projectsFunction() {
             githubLink.innerHTML = `<span class="used-prefix">Github: </span><a href="${projectContent[i].github}" target="_blank" class="githubTag">Project</a>`;
             projectDiv.appendChild(githubLink);
         }
+
+        // Add github link
+        if(projectContent[i].info){
+            let infoLink = document.createElement('p');
+            infoLink.innerHTML = `<span class="used-prefix">Info: </span><a href="${projectContent[i].info}" target="_blank" class="infoTag">Info page</a>`;
+            projectDiv.appendChild(infoLink);
+        }
+                
         
 
 
@@ -130,6 +160,9 @@ createTitle(titles[1]);
 
 createPrDivs(projectContent2);
 
+createTitle(titles[2]);
+
+createPrDivs(projectContent3);
 
 }
   

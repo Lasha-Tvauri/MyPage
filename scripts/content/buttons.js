@@ -2,9 +2,12 @@ const menuButtons = document.querySelectorAll('#menu .menuButton');
 menuButtons.forEach(button => {
     button.onclick = function() {
         menuButtons.forEach(btn => {
-            btn.style.color = 'rgba(255, 255, 255, 0.67)';
+            // Use the variable for idle state
+            btn.style.color = 'var(--menu-btn-idle)';
         });
-        this.style.color = 'rgb(255, 244, 119)';
+        
+        // Use the variable for active state
+        this.style.color = 'var(--menu-btn-active)';
 
         switch (this.innerText) {
             case 'Home':

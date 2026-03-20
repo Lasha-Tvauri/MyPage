@@ -1,3 +1,47 @@
+:root {
+  --bg-color: #0d0d0d;
+  --text-main: #efe7d1;
+  --text-muted: #ffffffb8;
+  --heading-color: rgb(218, 240, 201);
+  --card-bg: rgba(51, 51, 51, 0.234);
+  --card-border-green: rgba(0, 255, 204, 0.7);
+  --card-border-orange: rgba(255, 153, 0, 0.7);
+  --card-border-purple: rgba(168, 85, 232, 0.7);
+  --card-border-yellow: rgba(211, 237, 116, 0.7);
+  --menu-btn-text: rgba(255, 255, 255, 0.7);
+  --menu-btn-border: rgba(237, 207, 116, 0.368);
+  --menu-btn-hover-shadow: rgba(229, 237, 116, 0.7);
+  --menu-btn-hover-border: rgba(238, 255, 0, 0.7);
+  --loader-bg: black;
+  --loader-hex-path: #333;
+  --loader-hex-fill: rgb(255, 244, 119);
+  --title-text-shadow: rgb(80, 55, 42);
+  --menu-btn-idle: rgba(255, 255, 255, 0.67);
+  --menu-btn-active: rgb(255, 244, 119);
+}
+
+body.light-theme {
+  --bg-color: #ffffff;
+  --text-main: #333333;
+  --text-muted: #555555;
+  --heading-color: #222222;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --card-border-green: rgba(0, 150, 120, 0.8);
+  --card-border-orange: rgba(200, 100, 0, 0.8);
+  --card-border-purple: rgba(120, 50, 180, 0.8);
+  --card-border-yellow: rgba(150, 170, 50, 0.8);
+  --menu-btn-text: #444444;
+  --menu-btn-border: rgba(180, 150, 50, 0.5);
+  --menu-btn-hover-shadow: rgba(170, 132, 50, 0.4);
+  --menu-btn-hover-border: rgba(204, 150, 50, 0.9);
+  --loader-bg: white;
+  --loader-hex-path: #ccc;
+  --loader-hex-fill: #555;
+  --title-text-shadow: rgb(240, 223, 180);
+  --menu-btn-idle: rgba(0, 0, 0, 0.6); 
+  --menu-btn-active: rgb(233, 171, 2); 
+}
+
 .unselectable {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -8,19 +52,22 @@
 }
 
 body, html {
+  background-color: var(--bg-color);
   margin: 0;
   padding: 0;
   overflow: hidden;
   height: 100%;
   font-family: Arial, sans-serif;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
+
 
 /* Loader styles */
 
 .loader-container {
   width: 100%;
   height: 100%;
-  background-color: black;
+  background-color: var(--loader-bg);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,7 +79,7 @@ body, html {
 }
 
 .progress-hex-path {
-  stroke: #333;
+  stroke: var(--loader-hex-path);
   stroke-width: 5;
 }
 
@@ -41,13 +88,13 @@ body, html {
 .progress-text {
   font-family: 'Times New Roman', Times, serif, sans-serif;
   font-size: 46px; 
-  fill: rgb(218, 240, 201);
+  fill: var(--heading-color);
   text-anchor: middle;
   dominant-baseline: middle;
 }
 
 .progress-hex-fill {
-  stroke:  rgb(255, 244, 119); 
+  stroke:  var(--loader-hex-fill); 
   stroke-width: 5; 
   stroke-dasharray: 339; 
   stroke-dashoffset: 339; 
@@ -76,17 +123,17 @@ body, html {
   background-color: transparent;
 }
 
-canvas {
+/* canvas {
   display: block;
   width: 100%;
   height: 100%;
   background-color: #0d0d0d; 
-}
+} */
 
 #title-L {
   font-family: 'Times New Roman', Times, serif;
   font-size: 1.5em;
-  color: rgb(218, 240, 201);
+  color: var(--heading-color);
   text-decoration: none;
 }
 
@@ -108,18 +155,19 @@ canvas {
 
 #menu button {
   background-color: transparent;
-  border: 1px solid rgba(237, 207, 116, 0.368);
-  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--menu-btn-border);
+  color: var(--menu-btn-text);
   padding: 0.625em 1.25em; 
   margin: 0 1em; 
   cursor: pointer;
   font-size: 1em;
   border-radius: 0.625em;
+  transition: all 0.3s ease;
 }
 
 #menu button:hover {
-  box-shadow: 0 0 0.5em rgba(229, 237, 116, 0.7); 
-  border: 1px solid rgba(238, 255, 0, 0.7); 
+  box-shadow: 0 0 0.5em var(--menu-btn-hover-shadow); 
+  border: 1px solid var(--menu-btn-hover-border); 
 }
 
 #content-container {
@@ -145,17 +193,17 @@ canvas {
   display: none;
   max-width: 45%; 
   margin: 4em auto 0;
-  background-color: rgba(51, 51, 51, 0.234); 
+  background-color: var(--card-bg); 
   padding: 2em;
-  box-shadow: 0 0 0.5em rgba(237, 172, 116, 0.7); 
-  border: 1px solid rgba(255, 153, 0, 0.7);
+  box-shadow: 0 0 0.5em var(--card-border-orange); 
+  border: 1px solid var(--card-border-orange);
   border-radius: 1em;
-  color: #ffffffb8;  
+  color: var(--text-muted);  
   animation: twistIn 1s forwards, fadeIn 3s forwards; 
 }
 
 #content-wrapper p{
-  color: #f1ce91b8; 
+  color: var(--text-main); 
 }
 
 @keyframes rollout {
@@ -239,9 +287,9 @@ canvas {
 
 #contact-div-wrapper {
   width: 20%; 
-  background-color: rgba(51, 51, 51, 0.234);  
-  box-shadow: 0 0 0.5em rgba(211, 237, 116, 0.7); 
-  border: 1px solid rgba(211, 237, 116, 0.7); 
+  background-color: var(--card-bg);  
+  box-shadow: 0 0 0.5em var(--card-border-yellow); 
+  border: 1px solid var(--card-border-yellow); 
   padding: 2em;
   border-radius: 1em;
   position: absolute;
@@ -268,13 +316,13 @@ canvas {
 #contact-div-wrapper .contact, .contact a {
   font-size: medium;
   padding-left: 0.5em;
-  color: rgb(189, 199, 210); 
-  background-color: rgba(43, 43, 43, 0.7); 
+  color: var(--text-muted); 
+  background-color: var(--card-bg); 
   border-radius: 1em;
   text-decoration: none;
 }
 .contact a:hover {
-  color: rgba(255, 244, 119, 0.7);
+  color: var(--loader-hex-fill);
 }
 
 .projects-div-wrapper {
@@ -294,9 +342,9 @@ canvas {
 .top-line {
   text-align: center;
   margin: 2em 25%;
-  background-color: rgba(51, 51, 51, 0.234);  
-  box-shadow: 0 0 0.5em rgba(168, 85, 232, 0.7); 
-  border: 1px solid rgba(168, 85, 232, 0.7); 
+  background-color: var(--card-bg);  
+  box-shadow: 0 0 0.5em var(--card-border-purple); 
+  border: 1px solid var(--card-border-purple); 
   width:  calc(45%);
   padding: 0.1em 1.25em ; 
   margin-right: 1em;
@@ -306,11 +354,11 @@ canvas {
 .top-line span{
   font-size: 1.2em;
   font-weight: bold;
-  color: rgba(218, 251, 176, 0.889);
+  color: var(--heading-color);
 }
 .top-line p,
 .p_desc {
-  color: #d8c6eaef; 
+  color: var(--text-main); 
 }
 
 .usedT {
@@ -319,29 +367,33 @@ canvas {
 .used-prefix {
   color: rgba(141, 220, 189, 0.889);
 }
-.project-title1, .project-title2 {
-  font-weight: bold;
-  color: rgba(218, 251, 176, 0.889);
+.project-title1 {
+  color: var(--heading-color);
 }
 
 .project-title1:hover {
-  color:  rgb(255, 244, 119);
-  text-shadow: 2px 2px  rgb(80, 55, 42);
+  color:  var(--loader-hex-fill);
+  text-shadow: 2px 2px  var( --title-text-shadow);
   cursor: pointer;
 }
 
 
 .project-div {
-  background-color: rgba(51, 51, 51, 0.234);  
-  box-shadow: 0 0 0.5em rgba(168, 85, 232, 0.7); 
-  border: 1px solid rgba(168, 85, 232, 0.7); 
+  background-color: var(--card-bg);  
+  box-shadow: 0 0 0.5em var(--card-border-purple); 
+  border: 1px solid var(--card-border-purple); 
   width: calc(23%);
   height: 12em;
   padding: 1.25em; 
   margin-right: 1.5em;
   margin-bottom: 1em;
   border-radius: 0.625em; 
-  color: #fff;
+  color: var(--text-main);
+}
+
+.infoTag {
+  color: rgb(166, 159, 255);
+  text-decoration: none;
 }
 
 .githubTag {
@@ -371,10 +423,10 @@ canvas {
 
 
 #welcome {
-  background-color: rgba(51, 51, 51, 0.234);
-  box-shadow: 0 0 0.5em rgba(116, 237, 205, 0.7); 
-  border: 1px solid rgba(0, 255, 204, 0.7);
-  color: rgba(255, 255, 255, 0.9); 
+  background-color: var(--card-bg);
+  box-shadow: 0 0 0.5em var(--card-border-green); 
+  border: 1px solid var(--card-border-green);
+  color: var(--text-muted); 
   padding: 1.25em;
   margin: 4em auto 0;
   border-radius: 0.6em;
@@ -384,9 +436,9 @@ canvas {
 }
 
 #paragraph-container {
-  background-color: rgba(51, 51, 51, 0.234);  
-  box-shadow: 0 0 0.5em rgba(116, 237, 205, 0.7); 
-  border: 1px solid rgba(0, 255, 204, 0.7); 
+  background-color: var(--card-bg);  
+  box-shadow: 0 0 0.5em var(--card-border-green); 
+  border: 1px solid var(--card-border-green); 
   padding: 1.25em;
   margin: 4em auto 0;
   border-radius: 0.6em;
@@ -397,7 +449,7 @@ canvas {
 }
 
 p.typing-animation {
-  color: rgb(161, 216, 195); 
+  color: var(--card-border-green); 
   line-height: 2;
 }
 
@@ -405,17 +457,56 @@ h3 {
   font-weight: bold;
   margin-top: 0;
   margin-bottom: 7px;
-  color: rgb(218, 240, 201);
+  color: var(--heading-color);
 }
 
 p {
   font-size: 14px;
-  color: rgb(239, 231, 209); 
+  color: var(--text-main); 
 }
 
 span {
   font-size: 12px;
-  color: rgba(173, 217, 201, 0.889);
+  color: var(--text-muted);
+}
+
+/* Theme Toggle Button */
+#theme-toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: var(--card-bg);
+  border: 1px solid var(--menu-btn-border);
+  color: var(--menu-btn-text);
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0.5em rgba(0,0,0,0.1);
+}
+
+#theme-toggle-btn:hover {
+  box-shadow: 0 0 0.5em var(--menu-btn-hover-shadow);
+  border-color: var(--menu-btn-hover-border);
+  transform: scale(1.1);
+}
+
+#theme-toggle-btn i {
+  font-size: 1.2rem;
+}
+
+body.light-theme #theme-toggle-btn i.fa-sun {
+  display: none;
+}
+
+body:not(.light-theme) #theme-toggle-btn i.fa-moon {
+  display: none;
 }
 
 
